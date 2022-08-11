@@ -1,0 +1,67 @@
+[tool.poetry]
+name = "spring_yaml_to_env"
+version = "0.1.0"
+description = ""
+authors = ["Benedikt Fein <fein@fim.uni-passau.de>"]
+
+[tool.poetry.dependencies]
+python = ">=3.8,<3.11"
+PyYAML = "^6.0"
+
+[tool.poetry.dev-dependencies]
+coverage = "^6.4.3"
+black = "^22.6.0"
+flake8 = "^5.0.4"
+isort = { extras = ["pyproject"], version = "^5.10.1" }
+mypy = "^0.971"
+pylint = "^2.14.5"
+pytest = "^7.1"
+pytest-cov = "^3.0.0"
+pytest-sugar = "^0.9.5"
+tox = "^3.25.1"
+types-PyYAML = "^6.0.11"
+
+[tool.black]
+line-length = 88
+target_version = ["py38"]
+include = '\.pyi?$'
+
+[tool.isort]
+profile = "black"
+line_length=88
+multi_line_output=3
+include_trailing_comma=true
+indent='    '
+
+[tool.mypy]
+check_untyped_defs = true
+ignore_errors = false
+ignore_missing_imports = true
+strict_optional = true
+warn_unused_ignores = true
+warn_redundant_casts = true
+warn_unused_configs = true
+
+[tool.coverage.run]
+branch = true
+source = ["spring_yaml_to_env", "tests"]
+omit = ["tests/fixtures/*"]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "def __str__",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+    "if TYPE_CHECKING:",
+    "if typing.TYPE_CHECKING:"
+]
+
+[tool.coverage.html]
+directory = "cov_html"
+
+[build-system]
+requires = ["poetry-core>=1.0.0", "cython"]
+build-backend = "poetry.core.masonry.api"

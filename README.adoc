@@ -1,0 +1,12 @@
+= README
+
+// Links
+
+:artemis: https://github.com/ls1intum/Artemis
+:spring_relaxed_binding: https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.external-config.typesafe-configuration-properties.relaxed-binding
+
+//-
+
+Helper script to convert Spring YAML configuration files into their environment variable representation as defined by the {spring_relaxed_binding}[Spring Relaxed Binding].
+
+Initially created for the {artemis}[Artemis] interactive learning system.
