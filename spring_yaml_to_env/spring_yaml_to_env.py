@@ -7,7 +7,6 @@ variable representation.
 
 import logging
 from argparse import ArgumentParser
-from collections import OrderedDict
 from functools import reduce
 from typing import Any, Dict, List, Optional, Tuple
 
@@ -81,7 +80,7 @@ def flatten_list(
     if current_path is None:
         current_path = []
 
-    result: OrderedDict[str, str] = OrderedDict()
+    result: Dict[str, str] = {}
 
     if is_str_list(yml):
         # String lists can be given in the yaml as
@@ -124,7 +123,7 @@ def flatten_yaml(
     if current_path is None:
         current_path = []
 
-    result: OrderedDict[str, str] = OrderedDict()
+    result: Dict[str, str] = {}
 
     for k in yml.keys():
         path = [*current_path, k]
@@ -176,7 +175,7 @@ def main(files: List[str], sort: bool = False) -> None:
     :param files: The list of YAML files that should be converted.
     :param sort: True, if the config keys should be sorted lexicographically.
     """
-    result: OrderedDict[str, str] = OrderedDict()
+    result: Dict[str, str] = {}
 
     for file in files:
         result.update(flatten_yaml_file(file))

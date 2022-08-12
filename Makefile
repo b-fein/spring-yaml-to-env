@@ -6,8 +6,8 @@ test:
 
 .PHONY: format
 format:
-	poetry run black .
 	poetry run isort .
+	poetry run black .
 
 .PHONY: mypy
 mypy:
@@ -19,10 +19,14 @@ pylint:
 
 .PHONY: flake8
 flake8:
-	poetry run flake8 $(PROJECT)
+	poetry run flake8 $(PROJECT) tests
+
+.PHONY: darglint
+darglint:
+	poetry run darglint -v 2 $(PROJECT)/*.py
 
 .PHONY: check
-check: format mypy pylint flake8
+check: format mypy pylint flake8 darglint
 
 .PHONY: tox
 tox:
