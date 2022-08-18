@@ -196,7 +196,9 @@ def argument_parser() -> ArgumentParser:
     """
     description = (
         "Converts a list of Spring configuration YAML files into a combined list of "
-        "environment variable mappings."
+        "environment variable mappings. "
+        "The conversions of all files are combined and printed on the standard output "
+        "in the format as required by .env-Files, i.e, one 'KEY=VALUE' entry per line."
     )
     parser = ArgumentParser(description=description)
     parser.add_argument(
