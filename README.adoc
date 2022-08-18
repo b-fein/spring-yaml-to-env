@@ -33,3 +33,8 @@ options:
   -s, --sort  sort config options lexicographically
 
 ----
+
+
+== License
+
+Licensed under the EUPL-1.2-or-later.
