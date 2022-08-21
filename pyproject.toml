@@ -9,7 +9,7 @@ python = ">=3.8,<3.11"
 PyYAML = "^6.0"
 
 [tool.poetry.dev-dependencies]
-coverage = "^6.4.3"
+coverage = "^6.4.4"
 black = "^22.6.0"
 darglint = "^1.8.1"
 flake8 = "^5.0.4"
