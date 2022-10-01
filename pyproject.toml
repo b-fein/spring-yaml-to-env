@@ -21,7 +21,7 @@ isort = { extras = ["pyproject"], version = "^5.10.1" }
 mypy = "^0.971"
 pylint = "^2.15.3"
 pytest = "^7.1"
-pytest-cov = "^3.0.0"
+pytest-cov = "^4.0.0"
 pytest-sugar = "^0.9.5"
 tox = "^3.26.0"
 types-PyYAML = "^6.0.11"
