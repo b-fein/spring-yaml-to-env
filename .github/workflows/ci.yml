@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2022 Benedikt Fein
+#
+# SPDX-License-Identifier: EUPL-1.2
+
 name: CI
 on: [push, pull_request]
 
@@ -47,3 +51,6 @@ jobs:
 
       - name: Run tests
         run: poetry run pytest --cov=spring_yaml_to_env --cov=tests --cov-branch --cov-report=term-missing tests/
+
+      - name: Check reuse
+        run: poetry run reuse lint

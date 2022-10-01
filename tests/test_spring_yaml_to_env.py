@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2022 Benedikt Fein
+#
+# SPDX-License-Identifier: EUPL-1.2
+
 from spring_yaml_to_env.spring_yaml_to_env import flatten_yaml, parse_yaml
 
 

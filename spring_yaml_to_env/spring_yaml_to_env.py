@@ -1,5 +1,9 @@
 #! /usr/bin/env python3
 
+# SPDX-FileCopyrightText: 2022 Benedikt Fein
+#
+# SPDX-License-Identifier: EUPL-1.2
+
 """
 Script to convert Spring configuration YAML files into their environment
 variable representation.

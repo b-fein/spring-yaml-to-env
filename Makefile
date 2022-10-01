@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2022 Benedikt Fein
+#
+# SPDX-License-Identifier: EUPL-1.2
+
 PROJECT=spring_yaml_to_env
 
 .PHONY: test
@@ -25,8 +29,12 @@ flake8:
 darglint:
 	poetry run darglint -v 2 $(PROJECT)/*.py
 
+.PHONY: reuse
+reuse:
+	poetry run reuse lint
+
 .PHONY: check
-check: format mypy pylint flake8 darglint
+check: format mypy pylint flake8 darglint reuse
 
 .PHONY: tox
 tox:
