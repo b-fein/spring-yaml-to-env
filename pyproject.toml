@@ -24,7 +24,7 @@ pytest = "^7.1"
 pytest-cov = "^3.0.0"
 pytest-sugar = "^0.9.5"
 tox = "^3.26.0"
-types-PyYAML = "^6.0.11"
+types-PyYAML = "^6.0.12"
 reuse = "^1.0.0"
 
 [tool.black]
