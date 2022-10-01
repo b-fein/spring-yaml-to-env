@@ -18,7 +18,7 @@ black = "^22.8.0"
 darglint = "^1.8.1"
 flake8 = "^5.0.4"
 isort = { extras = ["pyproject"], version = "^5.10.1" }
-mypy = "^0.971"
+mypy = "^0.981"
 pylint = "^2.15.3"
 pytest = "^7.1"
 pytest-cov = "^4.0.0"
