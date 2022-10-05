@@ -1,0 +1,10 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: spring-yaml-to-env
+Upstream-Contact: Benedikt Fein <fein@fim.uni-passau.de>
+Source: https://github.com/b-fein/spring-yaml-to-env
+
+# Sample paragraph, commented out:
+#
+# Files: src/*
+# Copyright: $YEAR $NAME <$CONTACT>
+# License: ...
