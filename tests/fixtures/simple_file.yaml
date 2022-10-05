@@ -1,0 +1,10 @@
+# SPDX-FileCopyrightText: 2022 Benedikt Fein
+#
+# SPDX-License-Identifier: EUPL-1.2
+
+config:
+  single_value: 12
+  key:
+    - item1
+    - item2
+    - item3
