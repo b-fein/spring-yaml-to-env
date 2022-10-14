@@ -14,7 +14,7 @@ PyYAML = "^6.0"
 
 [tool.poetry.dev-dependencies]
 coverage = "^6.4.4"
-black = "^22.8.0"
+black = "^22.10.0"
 darglint = "^1.8.1"
 flake8 = "^5.0.4"
 isort = { extras = ["pyproject"], version = "^5.10.1" }
