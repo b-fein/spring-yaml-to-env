@@ -9,7 +9,7 @@ description = ""
 authors = ["Benedikt Fein <fein@fim.uni-passau.de>"]
 
 [tool.poetry.dependencies]
-python = ">=3.9,<3.11"
+python = ">=3.9,<4.0"
 PyYAML = "^6.0"
 
 [tool.poetry.group.dev.dependencies]
