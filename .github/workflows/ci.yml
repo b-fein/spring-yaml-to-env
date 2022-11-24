@@ -38,7 +38,7 @@ jobs:
         run: poetry run black --diff --check .
 
       - name: Check typing with mypy
-        run: poetry run mypy spring_yaml_to_env
+        run: poetry run mypy spring_yaml_to_env tests
 
       - name: Linting with flake8
         run: poetry run flake8 .

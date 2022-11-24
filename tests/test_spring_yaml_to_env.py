@@ -5,13 +5,13 @@
 from spring_yaml_to_env.spring_yaml_to_env import flatten_yaml, parse_yaml
 
 
-def test_empty_value():
+def test_empty_value() -> None:
     yaml = "key: # no value"
     result = flatten_yaml(parse_yaml(yaml))
     assert result == {"KEY": ""}
 
 
-def test_boolean_value():
+def test_boolean_value() -> None:
     yaml = """
     sentry.logging.enabled: true
     """
@@ -19,7 +19,7 @@ def test_boolean_value():
     assert result == {"SENTRY_LOGGING_ENABLED": "true"}
 
 
-def test_nested_yaml_values():
+def test_nested_yaml_values() -> None:
     yaml = """
     sentry:
         logging:
@@ -33,7 +33,7 @@ def test_nested_yaml_values():
     }
 
 
-def test_shortnotation_string_list():
+def test_shortnotation_string_list() -> None:
     yaml = """
     configuration.key: [a, b, c]
     """
@@ -41,7 +41,7 @@ def test_shortnotation_string_list():
     assert result == {"CONFIGURATION_KEY": "a, b, c"}
 
 
-def test_longnotation_string_list():
+def test_longnotation_string_list() -> None:
     yaml = """
     configuration.key:
     - a
@@ -52,7 +52,7 @@ def test_longnotation_string_list():
     assert result == {"CONFIGURATION_KEY": "a, b, c"}
 
 
-def test_list_with_complex_objects():
+def test_list_with_complex_objects() -> None:
     yaml = """
     key:
     - name: a

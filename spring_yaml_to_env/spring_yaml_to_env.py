@@ -156,7 +156,9 @@ def parse_yaml(yaml_src: str) -> Dict[str, Any]:
     :param yaml_src: The YAML source.
     :return: The parsed YAML.
     """
-    return yaml.full_load(yaml_src)
+    result = yaml.full_load(yaml_src)
+    assert isinstance(result, dict)
+    return result
 
 
 def flatten_yaml_file(filename: str) -> Dict[str, str]:

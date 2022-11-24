@@ -15,7 +15,7 @@ format:
 
 .PHONY: mypy
 mypy:
-	poetry run mypy $(PROJECT)
+	poetry run mypy $(PROJECT) tests
 
 .PHONY: pylint
 pylint:
