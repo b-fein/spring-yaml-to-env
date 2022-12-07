@@ -20,7 +20,7 @@ isort = { extras = ["pyproject"], version = "^5.10" }
 mypy = "^0.991"
 pylint = "^2.15"
 reuse = "^1.0"
-tox = "^3.26"
+tox = "^4.0"
 types-PyYAML = "^6.0"
 
 [tool.poetry.group.test.dependencies]
