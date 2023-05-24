@@ -17,24 +17,20 @@ format:
 mypy:
 	poetry run mypy $(PROJECT) tests
 
-.PHONY: pylint
-pylint:
-	poetry run pylint $(PROJECT)
-
-.PHONY: flake8
-flake8:
-	poetry run flake8 $(PROJECT) tests
+.PHONY: ruff
+ruff:
+	poetry run ruff $(PROJECT) tests
 
 .PHONY: darglint
 darglint:
-	poetry run darglint -v 2 $(PROJECT)/*.py
+	poetry run darglint2 -s sphinx -v 2 $(PROJECT)/*.py
 
 .PHONY: reuse
 reuse:
 	poetry run reuse lint
 
 .PHONY: check
-check: format mypy pylint flake8 darglint reuse
+check: format mypy ruff darglint reuse
 
 .PHONY: tox
 tox:

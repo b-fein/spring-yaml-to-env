@@ -10,16 +10,15 @@ authors = ["Benedikt Fein <fein@fim.uni-passau.de>"]
 
 [tool.poetry.dependencies]
 python = ">=3.9,<4.0"
-PyYAML = "^6.0"
+PyYAML = "~6.0.0"
 
 [tool.poetry.group.dev.dependencies]
 black = "^23.1"
-darglint = "^1.8"
-flake8 = "^6.0"
+darglint2 = "^1.8"
 isort = { extras = ["pyproject"], version = "^5.10" }
 mypy = "^1.0"
-pylint = "^2.15"
 reuse = "^1.0"
+ruff = "^0.0.269"
 tox = "^4.0"
 types-PyYAML = "^6.0"
 
@@ -29,10 +28,12 @@ pytest = "^7.2"
 pytest-cov = "^4.0"
 pytest-sugar = "^0.9"
 
+
 [tool.black]
 line-length = 88
 target_version = ["py38"]
 include = '\.pyi?$'
+
 
 [tool.isort]
 profile = "black"
@@ -40,6 +41,7 @@ line_length=88
 multi_line_output=3
 include_trailing_comma=true
 indent='    '
+
 
 [tool.mypy]
 check_untyped_defs = true
@@ -51,6 +53,40 @@ warn_return_any = true
 warn_unused_ignores = true
 warn_redundant_casts = true
 warn_unused_configs = true
+
+
+[tool.ruff]
+line-length = 88
+select = ["ALL"]
+# base set of ignored rules, to be adapted as needed
+# https://beta.ruff.rs/docs/rules/
+ignore = [
+    "ANN003", # typing annotations for kwargs, self, cls not needed
+    "ANN101",
+    "ANN102",
+    "COM", # trailing commas -> black
+    "D", # documentation
+    "E", # code style -> black
+    "I", # import order -> isort
+    "ISC",
+    "T20", # allow print statements
+]
+show-source = true
+exclude = [
+    "docs",
+    ".venv",
+    "venv",
+    ".mypy_cache",
+    ".pytest_cache",
+]
+target-version = "py39"
+
+[tool.ruff.per-file-ignores]
+"tests/**" = [
+    "PLR", # pylint refactoring suggestions
+    "S101" # assertions
+]
+
 
 [tool.coverage.run]
 branch = true
@@ -72,10 +108,12 @@ exclude_lines = [
 [tool.coverage.html]
 directory = "cov_html"
 
+
 [tool.pytest.ini_options]
 testpaths = [
     "tests",
 ]
+
 
 [build-system]
 requires = ["poetry-core>=1.0.0", "cython"]
