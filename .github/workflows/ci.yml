@@ -40,14 +40,11 @@ jobs:
       - name: Check typing with mypy
         run: poetry run mypy spring_yaml_to_env tests
 
-      - name: Linting with flake8
-        run: poetry run flake8 .
-
-      - name: Linting with pylint
-        run: poetry run pylint spring_yaml_to_env
+      - name: Linting with ruff
+        run: poetry run ruff .
 
       - name: Check docstrings with darglint
-        run: poetry run darglint -v 2 spring_yaml_to_env/*.py
+        run: poetry run darglint2 -s sphinx -v 2 spring_yaml_to_env/*.py
 
       - name: Run tests
         run: poetry run pytest --cov=spring_yaml_to_env --cov=tests --cov-branch --cov-report=term-missing tests/
