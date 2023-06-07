@@ -18,7 +18,7 @@ darglint2 = "^1.8"
 isort = { extras = ["pyproject"], version = "^5.10" }
 mypy = "^1.0"
 reuse = "^1.0"
-ruff = "^0.0.270"
+ruff = "^0.0.271"
 tox = "^4.0"
 types-PyYAML = "^6.0"
 
