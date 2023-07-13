@@ -13,7 +13,7 @@ import logging
 from argparse import ArgumentParser
 from functools import reduce
 from pathlib import Path
-from typing import Any, Optional
+from typing import Any
 
 import yaml
 
@@ -67,7 +67,7 @@ def save_value(result: dict[str, str], option_name: list[str], value: str) -> No
 
 
 def flatten_list(
-    yml: list[Any], current_path: Optional[list[str]] = None
+    yml: list[Any], current_path: list[str] | None = None
 ) -> dict[str, str]:
     """
     Converts a YAML list of configuration options into their environment
@@ -112,7 +112,7 @@ def flatten_list(
 
 
 def flatten_yaml(
-    yml: dict[str, Any], current_path: Optional[list[str]] = None
+    yml: dict[str, Any], current_path: list[str] | None = None
 ) -> dict[str, str]:
     """
     Flattens a YAML file into key-value pairs by recursively walking over all elements.
@@ -130,20 +130,20 @@ def flatten_yaml(
 
     for k in yml:
         path = [*current_path, k]
-        value = yml[k]
 
-        if isinstance(value, dict):
-            result.update(flatten_yaml(value, path))
-        elif isinstance(value, list):
-            result.update(flatten_list(value, path))
-        elif isinstance(value, bool):
-            save_value(result, path, str(value).lower())
-        elif isinstance(value, (float, int, str)):
-            save_value(result, path, str(value))
-        elif value is None:
-            save_value(result, path, "")
-        else:
-            logging.warning("Unknown YAML element: path=%s, value=%s", path, value)
+        match yml[k]:
+            case dict(value):
+                result.update(flatten_yaml(value, path))
+            case list(value):
+                result.update(flatten_list(value, path))
+            case bool(value):
+                save_value(result, path, str(value).lower())
+            case float(value) | int(value) | str(value):
+                save_value(result, path, str(value))
+            case None:
+                save_value(result, path, "")
+            case _:
+                logging.warning("Unknown YAML element: path=%s, value=%s", path, yml[k])
 
     return result
 
