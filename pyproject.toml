@@ -13,7 +13,7 @@ python = ">=3.11,<4.0"
 PyYAML = "~6.0.0"
 
 [tool.poetry.group.dev.dependencies]
-black = "^23.1"
+black = "^24.0.0"
 darglint2 = "^1.8"
 isort = { extras = ["pyproject"], version = "^5.10" }
 mypy = "^1.0"
