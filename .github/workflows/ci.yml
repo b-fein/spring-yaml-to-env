@@ -10,7 +10,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: ["3.11"]
+        python-version: ["3.11", "3.12"]
         poetry-version: ["latest"]
         os: ["ubuntu-latest"]
     runs-on: ${{ matrix.os }}
@@ -41,7 +41,7 @@ jobs:
         run: poetry run mypy spring_yaml_to_env tests
 
       - name: Linting with ruff
-        run: poetry run ruff .
+        run: poetry run ruff check .
 
       - name: Check docstrings with darglint
         run: poetry run darglint2 -s sphinx -v 2 spring_yaml_to_env/*.py
