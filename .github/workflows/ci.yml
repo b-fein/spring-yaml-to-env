@@ -10,7 +10,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: ["3.11", "3.12"]
+        python-version: ["3.11", "3.12", "3.13"]
         poetry-version: ["latest"]
         os: ["ubuntu-latest"]
     runs-on: ${{ matrix.os }}
@@ -34,8 +34,8 @@ jobs:
       - name: Check imports with isort
         run: poetry run isort --check-only . --profile black
 
-      - name: Check formatting with black
-        run: poetry run black --diff --check .
+      - name: Check formatting
+        run: poetry run ruff format --diff --check .
 
       - name: Check typing with mypy
         run: poetry run mypy spring_yaml_to_env tests
