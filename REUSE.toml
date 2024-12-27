@@ -1,0 +1,5 @@
+version = 1
+SPDX-PackageName = "spring-yaml-to-env"
+SPDX-PackageSupplier = "Benedikt Fein <fein@fim.uni-passau.de>"
+SPDX-PackageDownloadLocation = "https://github.com/b-fein/spring-yaml-to-env"
+annotations = []

@@ -18,9 +18,9 @@ Initially created for the {artemis}[Artemis] interactive learning system.
 
 == Usage
 
-Python 3.8 or newer is required.
+Python 3.11 or newer is required.
 
-`python ./spring_yaml_to_env/spring_yaml_to_env.py --help`
+`python ./src/spring_yaml_to_env/spring_yaml_to_env.py --help`
 
 [source]
 ----

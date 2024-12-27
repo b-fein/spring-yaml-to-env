@@ -1,31 +1,36 @@
-# SPDX-FileCopyrightText: 2022 Benedikt Fein
+# SPDX-FileCopyrightText: 2024 Benedikt Fein
 #
 # SPDX-License-Identifier: EUPL-1.2
 
-[tool.poetry]
-name = "spring_yaml_to_env"
-version = "1.0.0"
-description = ""
-authors = ["Benedikt Fein <fein@fim.uni-passau.de>"]
+[project]
+name = "spring-yaml-to-env"
+version = "0.1.0"
+description = "Add your description here"
+requires-python = ">=3.11,<4"
+dependencies = [
+    "PyYAML~=6.0.0",
+]
 
-[tool.poetry.dependencies]
-python = ">=3.11,<4.0"
-PyYAML = "~6.0.0"
+[dependency-groups]
+dev = [
+    "darglint2~=1.8",
+    "isort~=5.13",
+    "mypy~=1.14",
+    "pyupgrade~=3.19",
+    "reuse~=5.0",
+    "ruff~=0.8",
+    "types-PyYAML~=6.0",
+]
+test = [
+    "coverage~=7.6",
+    "pytest~=8.3",
+    "pytest-cov~=6.0",
+    "pytest-sugar~=1.0",
+]
 
-[tool.poetry.group.dev.dependencies]
-darglint2 = "^1.8"
-isort = { extras = ["pyproject"], version = "^5.10" }
-mypy = "^1.0"
-pyupgrade = "^3.9.0"
-reuse = "^5.0.0"
-ruff = "^0.8.0"
-types-PyYAML = "^6.0"
 
-[tool.poetry.group.test.dependencies]
-coverage = "^7.0"
-pytest = "^8.0.0"
-pytest-cov = "^6.0.0"
-pytest-sugar = "^1.0.0"
+[tool.uv]
+default-groups = ["dev", "test"]
 
 
 [tool.isort]
@@ -109,5 +114,5 @@ testpaths = [
 
 
 [build-system]
-requires = ["poetry-core>=1.0.0", "cython"]
-build-backend = "poetry.core.masonry.api"
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
