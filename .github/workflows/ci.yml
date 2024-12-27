@@ -11,43 +11,37 @@ jobs:
       fail-fast: false
       matrix:
         python-version: ["3.11", "3.12", "3.13"]
-        poetry-version: ["latest"]
         os: ["ubuntu-latest"]
     runs-on: ${{ matrix.os }}
 
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
 
-      - name: Setup Python
-        uses: actions/setup-python@v5
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
         with:
           python-version: ${{ matrix.python-version }}
 
-      - name: Setup Poetry
-        uses: abatilo/actions-poetry@v3.0.1
-        with:
-          poetry-version: ${{ matrix.poetry-version }}
-
-      - name: Install dependencies
-        run: poetry install
+      - name: Install the project
+        run: uv sync --all-extras --dev
 
       - name: Check imports with isort
-        run: poetry run isort --check-only . --profile black
+        run: uv run isort --check-only . --profile black
 
       - name: Check formatting
-        run: poetry run ruff format --diff --check .
+        run: uv run ruff format --diff --check .
 
       - name: Check typing with mypy
-        run: poetry run mypy spring_yaml_to_env tests
+        run: uv run mypy src tests
 
       - name: Linting with ruff
-        run: poetry run ruff check .
+        run: uv run ruff check .
 
       - name: Check docstrings with darglint
-        run: poetry run darglint2 -s sphinx -v 2 spring_yaml_to_env/*.py
+        run: uv run darglint2 -s sphinx -v 2 src/**/*.py
 
       - name: Run tests
-        run: poetry run pytest --cov=spring_yaml_to_env --cov=tests --cov-branch --cov-report=term-missing tests/
+        run: uv run pytest --cov=src --cov=tests --cov-branch --cov-report=term-missing tests/
 
       - name: Check reuse
-        run: poetry run reuse lint
+        run: uv run reuse lint

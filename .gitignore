@@ -2,6 +2,8 @@
 #
 # SPDX-License-Identifier: CC0-1.0
 
+.devenv/
+.direnv/
 .idea/
 cov_html/
 report.xml
