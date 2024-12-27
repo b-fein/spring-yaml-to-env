@@ -128,10 +128,10 @@ def flatten_yaml(
 
     result: dict[str, str] = {}
 
-    for k in yml:
+    for k, v in yml.items():
         path = [*current_path, k]
 
-        match yml[k]:
+        match v:
             case dict(value):
                 result.update(flatten_yaml(value, path))
             case list(value):
@@ -143,7 +143,7 @@ def flatten_yaml(
             case None:
                 save_value(result, path, "")
             case _:
-                logging.warning("Unknown YAML element: path=%s, value=%s", path, yml[k])
+                logging.warning("Unknown YAML element: path=%s, value=%s", path, v)
 
     return result
 

@@ -13,14 +13,12 @@ python = ">=3.11,<4.0"
 PyYAML = "~6.0.0"
 
 [tool.poetry.group.dev.dependencies]
-black = "^24.0.0"
 darglint2 = "^1.8"
 isort = { extras = ["pyproject"], version = "^5.10" }
 mypy = "^1.0"
 pyupgrade = "^3.9.0"
 reuse = "^5.0.0"
 ruff = "^0.8.0"
-tox = "^4.0"
 types-PyYAML = "^6.0"
 
 [tool.poetry.group.test.dependencies]
@@ -28,12 +26,6 @@ coverage = "^7.0"
 pytest = "^8.0.0"
 pytest-cov = "^6.0.0"
 pytest-sugar = "^1.0.0"
-
-
-[tool.black]
-line-length = 88
-target_version = ["py311"]
-include = '\.pyi?$'
 
 
 [tool.isort]
@@ -67,8 +59,6 @@ select = ["ALL"]
 # https://beta.ruff.rs/docs/rules/
 ignore = [
     "ANN003", # typing annotations for kwargs, self, cls not needed
-    "ANN101",
-    "ANN102",
     "COM", # trailing commas -> black
     "D", # documentation
     "E", # code style -> black
