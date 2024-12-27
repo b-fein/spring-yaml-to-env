@@ -1,7 +1,6 @@
 # SPDX-FileCopyrightText: 2024 Benedikt Fein
 #
 # SPDX-License-Identifier: EUPL-1.2
-
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -42,6 +41,15 @@
                 enable = true;
                 package = pkgs.python311;
                 uv.enable = true;
+              };
+
+              pre-commit.hooks = {
+                alejandra.enable = true;
+                isort.enable = true;
+                pyupgrade.enable = true;
+                reuse.enable = true;
+                ruff-format.enable = true;
+                ruff.enable = true;
               };
             }
           ];

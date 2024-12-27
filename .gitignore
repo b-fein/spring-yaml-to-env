@@ -5,6 +5,7 @@
 .devenv/
 .direnv/
 .idea/
+.pre-commit-config.yaml
 cov_html/
 report.xml
 
