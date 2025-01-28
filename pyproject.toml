@@ -14,7 +14,7 @@ dependencies = [
 [dependency-groups]
 dev = [
     "darglint2~=1.8",
-    "isort~=5.13",
+    "isort~=6.0",
     "mypy~=1.14",
     "pyupgrade~=3.19",
     "reuse~=5.0",
