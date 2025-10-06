@@ -17,7 +17,7 @@ dev = [
     "isort~=6.0",
     "mypy~=1.14",
     "pyupgrade~=3.19",
-    "reuse~=5.0",
+    "reuse~=6.0",
     "ruff~=0.8",
     "types-PyYAML~=6.0",
 ]
